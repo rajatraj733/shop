@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div [ngClass]="{'col-md-12' : !twoScreen, 'col-md-9' : twoScreen}">
+      <form #searchForm="ngForm" (ngSubmit)="searchProduct(searchForm.value)">
+        <div class="row" style="margin-top:85px;">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6" style="text-align: right;"><label for="">Product Name:</label></div>
+              <div class="col-md-6"><input name="name" ngModel type="text" class="form-control"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-3">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-success" routerLink="add">+ Add New Product</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row" style="margin-right:0px; margin-top:20px;">
+        <table class="table table-hover table-bordered table-striped ">
+          <tr>
+            <th>Name</th>
+            <th>MRP</th>
+            <th>CP per Unit</th>
+            <th>Units per Carton</th>
+            <th>SP per Unit</th>
+            <th>SP per Carton</th>
+            <th>GST Rate</th>
+            <th>Stocks in Unit</th>
+            <th>Comment</th>
+            <th></th>
+          </tr>
+          <tr *ngFor="let product of resultProducts" (dblclick) = 'editProduct(product.id)' [ngClass] = "{selected: product.id === selectedProductId}">
+            <td>{{product.name}}</td>
+            <td [ngClass]="{'notset': product.mrp ===  null}">
+              {{(product.mrp !== null?(product.mrp | currency: 'INR':true:'1.0-2'): 'Not Set') }}
+            </td>
+            <td [ngClass]="{'notset': product.cpPerUnit ===  null}">
+                {{(product.cpPerUnit !== null?(product.cpPerUnit | currency:'INR':true:'1.0-4'): 'Not Set')}}
+                </td>
+            <td [ngClass]="{'notset': product.unitsPerCarton ===  null}">
+                {{(product.unitsPerCarton !== null?product.unitsPerCarton: 'Not Set')}}
+                </td>
+            <td [ngClass]="{'notset': product.spPerUnit ===  null}">
+                {{(product.spPerUnit !== null?(product.spPerUnit| currency:'INR':true:'1.0-4'): 'Not Set')}}
+                </td>
+            <td [ngClass]="{'notset': product.spPerCarton ===  null}">
+                {{(product.spPerCarton !== null?(product.spPerCarton| currency:'INR':true:'1.0-4'): 'Not Set')}}
+                </td>
+            <td [ngClass]="{'notset': product.gstTaxRate ===  null}">
+                {{product.gstTaxRate !== null?product.gstTaxRate: 'Not Set'}}
+                </td>
+            <td [ngClass]="{'notset': product.stocksInUnit ===  null}">
+                {{product.stocksInUnit !== null?product.stocksInUnit: 'Not Set'}}
+                </td>
+            <td>{{product.comment}}</td>
+            <td class="contextual-menu">
+              <div class="div-contextual-menu">
+                <ul>
+                  <li (click) = 'editProduct(product.id)'><span>Edit</span></li>
+                  <li (click) = 'addStock(product.id)'><span>Add Stock</span></li>
+                  <li><span>Delete</span></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="resultStatus">
+            <td colspan="10" style="text-align: center"> {{resultStatus}} </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="twoScreen" [ngClass]="{'col-md-3' : twoScreen}"  style="box-shadow: -2px 0px 4px 0px; padding-bottom: 40px; position: fixed; right: 0px; background:white; width: 23.2%;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row"></div>
+<div class="row"></div>
+<div class="row"></div>

@@ -1,0 +1,76 @@
+<form [formGroup] = "addProductForm" novalidate (ngSubmit) = "submitForm()">
+  <div class="row">
+    <h3 style="margin-left: 12px; margin-bottom:30px">{{title}}</h3>
+  </div>
+  <div class="row">
+      <div class="col-md-12">{{message}}</div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><label for="">Product Name</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="name" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.name"><div class="col-md-12">{{formErrors.name}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">MRP</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="mrp" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.mrp"><div class="col-md-12">{{formErrors.mrp}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">Cost Price per Unit</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="cpPerUnit" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.cpPerUnit"><div class="col-md-12">{{formErrors.cpPerUnit}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">No. of units per carton</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="unitsPerCarton" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.unitsPerCarton"><div class="col-md-12">{{formErrors.unitsPerCarton}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">Selling Price per Carton</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="spPerCarton" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.spPerCarton"><div class="col-md-12">{{formErrors.spPerCarton}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">Selling Price per Unit</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="spPerUnit" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.spPerUnit"><div class="col-md-12">{{formErrors.spPerUnit}}</div></div>
+  <div class="row">
+    <div class="col-md-12"><label for="">GST Tax Rate</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><select class="form-control" formControlName="gstTaxRate">
+        <option *ngFor = "let gstTaxRateSlab of gstTaxRateSlabList" value = "{{gstTaxRateSlab}}">{{gstTaxRateSlab}}</option>
+        </select></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><label for="">Comment</label></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><input formControlName="comment" class="form-control" type="text"></div>
+  </div>
+  <div class="row validation-alert" *ngIf="formErrors.comment"><div class="col-md-12">{{formErrors.comment}}</div></div>
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-md-12">
+        <button type="submit" *ngIf="mode==='add'" class="btn btn-primary" style="width: 100px" [disabled] = "!addProductForm.valid">
+          Add
+          </button>
+        <button type="button" *ngIf="mode==='edit'" class="btn btn-primary" style="width: 100px" [disabled] = "!addProductForm.valid" (click) = "updateForm()">
+          Update
+          </button>
+        <button type="button" (click) = "goBack()" class="btn btn-info" style="width: 100px">Back</button>
+    </div>
+</div>
+</form>
