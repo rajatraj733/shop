@@ -50,7 +50,7 @@ div.div-contextual-menu li:hover {
     width: 23.2%;
 }
 table>tbody>tr.selected {
-    background: #b2b2e8;
+  background: #b2b2e8;
 }
 .table-hover>tbody>tr:hover {
     background-color: #b2b2e8;

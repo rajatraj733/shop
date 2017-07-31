@@ -5,58 +5,54 @@
   <div class="row">
     <div class="col-md-12">{{message}}</div>
   </div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Person Name</label></div>
+  <div class="row form-label">
+    <div class="col-md-12"><label>Person Name</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="name" class="form-control" type="text"></div>
   </div>
   <div class="row validation-alert" *ngIf="formErrors.name"><div class="col-md-12">{{formErrors.name}}</div></div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Address</label></div>
+  <div class="row form-label">
+    <div class="col-md-12"><label>Address</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="address" class="form-control" type="text"></div>
   </div>
-  <div class="row validation-alert" *ngIf="formErrors.address"><div class="col-md-12">{{formErrors.mrp}}</div></div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Mobile No.</label></div>
+  <div class="row validation-alert" *ngIf="formErrors.address"><div class="col-md-12">{{formErrors.address}}</div></div>
+  <div class="row form-label">
+    <div class="col-md-12"><label>Mobile No.</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="mobileNo" class="form-control" type="text"></div>
   </div>
-  <div class="row validation-alert" *ngIf="formErrors.mobileNo"><div class="col-md-12">{{formErrors.cpPerUnit}}</div></div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Identification Type</label></div>
+  <div class="row validation-alert" *ngIf="formErrors.mobileNo"><div class="col-md-12">{{formErrors.mobileNo}}</div></div>
+  <div class="row form-label">
+    <div class="col-md-12"><label>Identification Type</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="identificationType" class="form-control" type="text"></div>
   </div>
-  <div class="row validation-alert" *ngIf="formErrors.identificationType"><div class="col-md-12">{{formErrors.unitsPerCarton}}</div></div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Identification Number</label></div>
+  <div class="row validation-alert" *ngIf="formErrors.identificationType"><div class="col-md-12">{{formErrors.identificationType}}</div></div>
+  <div class="row form-label">
+    <div class="col-md-12"><label>Identification Number</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="identificationNumber" class="form-control" type="text"></div>
   </div>
-  <div class="row validation-alert" *ngIf="formErrors.identificationNumber"><div class="col-md-12">{{formErrors.spPerCarton}}</div></div>
-  <div class="row">
-    <div class="col-md-1"><input type="checkbox" formControlName="isSupplier" /></div>
-    <div class="col-md-5"><label for="">Supplier</label></div>
-    <div class="col-md-1"><input type="checkbox" formControlName="isCustomer" /></div>
-    <div class="col-md-5"><label for="">Customer</label></div>
+  <div class="row validation-alert" *ngIf="formErrors.identificationNumber"><div class="col-md-12">{{formErrors.identificationNumber}}</div></div>
+  <div class="row form-label">
+    <div class="col-md-1"><input type="checkbox" formControlName="isSupplier" id="supplier-checkbox" /></div>
+    <div class="col-md-5"><label for="supplier-checkbox">Supplier</label></div>
+    <div class="col-md-1"><input type="checkbox" formControlName="isCustomer" id="customer-checkbox"/></div>
+    <div class="col-md-4"><label for="customer-checkbox">Customer</label></div>
   </div>
-  <div class="row validation-alert" *ngIf="formErrors.supplierCustomer"><div class="col-md-12">{{formErrors.spPerUnit}}</div></div>
-  <div class="row">
-    <div class="col-md-12"><label for="">GST Tax Rate</label></div>
-  </div>
-  <div class="row">
-    <div class="col-md-12"><select class="form-control" formControlName="gstTaxRate">
-      <option *ngFor = "let gstTaxRateSlab of gstTaxRateSlabList" value = "{{gstTaxRateSlab}}">{{gstTaxRateSlab}}</option>
-    </select></div>
-  </div>
-  <div class="row">
-    <div class="col-md-12"><label for="">Comment</label></div>
+  <div class="row validation-alert" *ngIf="formErrors.supplierCustomer"><div class="col-md-12">{{formErrors.supplierCustomer}}</div></div>
+
+
+
+
+  <div class="row form-label">
+    <div class="col-md-12"><label>Comment</label></div>
   </div>
   <div class="row">
     <div class="col-md-12"><input formControlName="comment" class="form-control" type="text"></div>

@@ -4,3 +4,53 @@
 #right-container{
     display: inline-block;
 }
+
+.notset {
+  color: #361c96;
+}
+tr {
+  cursor: pointer;
+}
+td.contextual-menu {
+  position: relative;
+  background: url(../../assets/images/right-arrow-transparent.png);
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+}
+td.contextual-menu > div.div-contextual-menu {
+  position: absolute;
+  display: none;
+  left: -50%;
+  top: 96%;
+  z-index: 2;
+  background: white;
+  box-shadow: 1px 1px 1px;
+  width: 80px;
+}
+td.contextual-menu:hover > div.div-contextual-menu {
+  display: block;
+  background: #e3e3f3;
+}
+div.div-contextual-menu li {
+  list-style-type: none;
+  text-align: center;
+  height: 40px;
+}
+div.div-contextual-menu ul {
+  -webkit-padding-start: 0px;
+}
+div.div-contextual-menu li:hover {
+  background: black;
+  color:white;
+}
+table>tbody>tr.selected {
+  background: #b2b2e8;
+}
+.table-hover>tbody>tr:hover {
+  background-color: #b2b2e8;
+}
+div.div-contextual-menu li>span {
+  position: relative;
+  top: 26%;
+}

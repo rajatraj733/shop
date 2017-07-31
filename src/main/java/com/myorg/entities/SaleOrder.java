@@ -1,25 +1,63 @@
 package com.myorg.entities;
 
 
+import com.fasterxml.jackson.annotation.JacksonAnnotation;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@IdClass(SaleOrderId.class)
 public class SaleOrder implements Serializable {
+    @EmbeddedId
+    private PK pk;
 
-    @Id
-    private String id;
+    @Embeddable
+    public static class PK implements Serializable {
+        private String id;
+        @ManyToOne @JoinColumn(name = "product_id")
+        private Product product;
+        @ManyToOne @JoinColumn(name = "customer_id")
+        private Person customer;
 
-    @Id
-    @ManyToOne @JoinColumn(name = "product_id")
-    private Product productId;
-    @Id @ManyToOne @JoinColumn(name = "customer_id")
-    private Person customerId;
+        public PK() {
+        }
+
+        public PK(String id, Product product, Person customer) {
+            this.id = id;
+            this.product = product;
+            this.customer = customer;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public Product getProduct() {
+            return product;
+        }
+
+        public void setProduct(Product product) {
+            this.product = product;
+        }
+
+        public Person getCustomer() {
+            return customer;
+        }
+
+        public void setCustomer(Person customer) {
+            this.customer = customer;
+        }
+    }
 
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date orderDate;
 
     private BigDecimal quantity;
@@ -28,28 +66,12 @@ public class SaleOrder implements Serializable {
     private BigDecimal finalPricePerUnit;
     private String comment;
 
-    public String getId() {
-        return id;
+    public PK getPk() {
+        return pk;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Product getProduct() {
-        return productId;
-    }
-
-    public void setProduct(Product product) {
-        this.productId = product;
-    }
-
-    public Person getCustomer() {
-        return customerId;
-    }
-
-    public void setCustomer(Person customer) {
-        this.customerId = customer;
+    public void setPk(PK pk) {
+        this.pk = pk;
     }
 
     public Date getOrderDate() {
@@ -100,12 +122,11 @@ public class SaleOrder implements Serializable {
         this.comment = comment;
     }
 
+
     @Override
     public String toString() {
         return "SaleOrder{" +
-                "id='" + id + '\'' +
-                ", product=" + productId +
-                ", customer=" + customerId +
+                "pk=" + pk +
                 ", orderDate=" + orderDate +
                 ", quantity=" + quantity +
                 ", gstTaxPerUnit=" + gstTaxPerUnit +

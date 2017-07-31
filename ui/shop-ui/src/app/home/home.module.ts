@@ -9,6 +9,7 @@ import {PersonModule} from '../person/person.module';
 import {NavigationComponent} from '../navigation/navigation.component';
 import {ProductService} from '../services/product.service';
 import {CacheService} from '../services/cache.service';
+import {PersonService} from "../services/person.service";
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +24,8 @@ import {CacheService} from '../services/cache.service';
   ],
   providers: [
     ProductService,
-    CacheService
+    CacheService,
+    PersonService
   ]
 })
 export class HomeModule { }

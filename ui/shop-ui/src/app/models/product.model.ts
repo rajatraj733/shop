@@ -13,9 +13,10 @@ export class Product {
         public  spPerUnit: Number, //Decimal(12, 4)
 
         public  gstTaxRate: Number, //Integer
-        public  comment: String, 
+        public  comment: String,
         public  stocksInUnit: Number,
     ) {
 
     }
 }
+

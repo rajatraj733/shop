@@ -30,25 +30,17 @@ public class SaleOrderService {
     }
 
     public Iterable<SaleOrder> addOrders(List<SaleOrder> orders) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+//        EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         List<SaleOrder> resOrders = new ArrayList<>();
-        if(StringUtils.isEmpty(orders.get(0).getId()))
-        {
-            String orderId = "RS"+new SimpleDateFormat("yMMddhhmmss").format(new Date());
-            for(SaleOrder order: orders) {
-                order.setId(orderId);
+        if (StringUtils.isEmpty(orders.get(0).getPk().getId())) {
+            String orderId = "RS" + new SimpleDateFormat("yMMddhhmmss").format(new Date());
+            for (SaleOrder order : orders) {
+                order.getPk().setId(orderId);
             }
         }
-        entityManager.merge(orders);
-//        for(SaleOrder order: orders) {
-//            resOrders.add(saleOrdRepo.save(order));
-//        }
-        return orders;
-//        return resOrders;
+        return saleOrdRepo.save(orders);
     }
-
-
 
 
 }
