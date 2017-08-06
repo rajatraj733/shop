@@ -34,7 +34,8 @@ public class Product implements Serializable{
 	
 	private Integer gstTaxRate;
 	private String comment;
-	private Integer stocksInUnit;
+	@Column(insertable = false)
+	private BigDecimal stocksInUnit;
 	
 	public Integer getId() {
 		return id;
@@ -90,10 +91,10 @@ public class Product implements Serializable{
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Integer getStocksInUnit() {
+	public BigDecimal getStocksInUnit() {
 		return stocksInUnit;
 	}
-	public void setStocksInUnit(Integer stocksInUnit) {
+	public void setStocksInUnit(BigDecimal stocksInUnit) {
 		this.stocksInUnit = stocksInUnit;
 	}
 	@Override

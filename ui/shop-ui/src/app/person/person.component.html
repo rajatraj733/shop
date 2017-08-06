@@ -4,13 +4,15 @@
 
       <form #searchForm = "ngForm" (ngSubmit)="searchPersons(searchForm.value)">
         <div class="row" style="margin-top:85px;">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="row">
-              <div class="col-md-6" style="text-align: right;"><label>Person Name:</label></div>
-              <div class="col-md-6"><input ngModel name="name" type="text" class="form-control"></div>
+              <div class="col-md-2" style="text-align: right;"><label>Name</label></div>
+              <div class="col-md-4"><input ngModel name="name" type="text" class="form-control"></div>
+              <div class="col-md-2" style="text-align: right;"><label>Mobile</label></div>
+              <div class="col-md-4"><input type="number" name="mobile" ngModel class="form-control"></div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="row">
               <div class="col-md-3">
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -49,10 +51,10 @@
               {{person.identificationNumber?person.identificationNumber: 'Not Set'}}
             </td>
             <td>
-              <span class="role" *ngIf = "person.isCustomer">Customer</span><span class="role" *ngIf = "person.isSupplier">Supplier</span>
+              <span class="role" *ngIf = "person.customer">Customer</span><span class="role" *ngIf = "person.supplier">Supplier</span>
             </td>
             <td>
-              {{person.balance | currency: 'INR':true: '1.2-2'}}
+              {{(person.balance?person.balance: 0) | currency: 'INR':true: '1.2-2'}}
             </td>
             <td class="contextual-menu">
               <div class="div-contextual-menu">

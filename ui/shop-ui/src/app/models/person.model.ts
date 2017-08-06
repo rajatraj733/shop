@@ -6,8 +6,8 @@ export class Person {
         public mobileNo: String,
         public identificationType: String,
         public identificationNumber: String,
-        public isCustomer: boolean,
-        public isSupplier: boolean,
+        public customer: boolean,
+        public supplier: boolean,
         public balance: Number,
         public comment: String,
     ) {

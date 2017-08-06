@@ -8,8 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.myorg.dao.PersonRepository;
 import com.myorg.dao.ProductRepository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableTransactionManagement
 public class ShopApplication {
 	@Autowired
 	PersonRepository personDao;

@@ -1,5 +1,7 @@
 package com.myorg.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -69,6 +71,7 @@ public class PurchaseOrder implements Serializable {
 		}
 	}
 	@Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyy-MM-dd")
 	private Date orderDate;
 	private BigDecimal quantity;
 	private BigDecimal pricePerUnit;

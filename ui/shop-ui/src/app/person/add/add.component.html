@@ -41,9 +41,9 @@
   </div>
   <div class="row validation-alert" *ngIf="formErrors.identificationNumber"><div class="col-md-12">{{formErrors.identificationNumber}}</div></div>
   <div class="row form-label">
-    <div class="col-md-1"><input type="checkbox" formControlName="isSupplier" id="supplier-checkbox" /></div>
+    <div class="col-md-1"><input type="checkbox" formControlName="supplier" id="supplier-checkbox" /></div>
     <div class="col-md-5"><label for="supplier-checkbox">Supplier</label></div>
-    <div class="col-md-1"><input type="checkbox" formControlName="isCustomer" id="customer-checkbox"/></div>
+    <div class="col-md-1"><input type="checkbox" formControlName="customer" id="customer-checkbox"/></div>
     <div class="col-md-4"><label for="customer-checkbox">Customer</label></div>
   </div>
   <div class="row validation-alert" *ngIf="formErrors.supplierCustomer"><div class="col-md-12">{{formErrors.supplierCustomer}}</div></div>

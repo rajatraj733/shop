@@ -72,7 +72,7 @@ import {ProductService} from '../../services/product.service';
             'pattern': 'Numbers only accepted and more than 4 digits not allowed in decimal'
         },
         'comment': {
-            'maxlength': 'It cannot contain more than 100 characters' 
+            'maxlength': 'It cannot contain more than 100 characters'
         }
     }
 
@@ -105,7 +105,7 @@ import {ProductService} from '../../services/product.service';
                 } else {
                     this.message = 'Product with this id does not exist';
                 }
-                
+
             });
         }
         this.title = this.modeParams[this.mode].title;
@@ -123,7 +123,7 @@ import {ProductService} from '../../services/product.service';
         this.addProductForm = new FormGroup({
             name: new FormControl(this.product.name, [Validators.required, Validators.maxLength(100)]),
             mrp: new FormControl(this.product.mrp, [Validators.maxLength(9), Validators.min(0), Validators.pattern('^[0-9]*$')]),
-            cpPerUnit: new FormControl(this.product.cpPerUnit, [Validators.min(0), Validators.max(99999999.9999), 
+            cpPerUnit: new FormControl(this.product.cpPerUnit, [Validators.min(0), Validators.max(99999999.9999),
                 Validators.pattern('^[0-9]{0,8}(([\\.])[0-9]{0,4})?$')]),
             unitsPerCarton: new FormControl(this.product.unitsPerCarton, [Validators.min(1), Validators.max(999999999),
                 Validators.pattern('^[0-9]*$')]),
@@ -178,7 +178,7 @@ import {ProductService} from '../../services/product.service';
               this.message = "Product updated successfully!!";
               this.product = data;
               this.initializeForm();
-          }  
+          }
         });
     }
 }

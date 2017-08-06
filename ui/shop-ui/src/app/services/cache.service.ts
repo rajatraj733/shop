@@ -49,6 +49,9 @@ export class CacheService {
     clearProductsCache() {
         this.products = null;
     }
+    clearPersonsCache() {
+      this.persons = null;
+    }
 
 
 }
